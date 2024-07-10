@@ -1,0 +1,31 @@
+<div id="banglaDate">তারিখঃ</div>
+<script>
+function getBanglaDate() {
+    
+    const date = new Date();
+ 
+    const day = date.getDate();
+    const month = date.getMonth() + 1;  
+    const year = date.getFullYear();
+
+    
+    const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+
+    function convertToBanglaNumber(number) {
+        return number.toString().split('').map(digit => banglaDigits[digit]).join('');
+    }
+
+    const banglaDay = convertToBanglaNumber(day);
+    const banglaMonth = convertToBanglaNumber(month);
+    const banglaYear = convertToBanglaNumber(year);
+
+    
+    const banglaDate = `তারিখঃ${banglaDay}/${banglaMonth}/${banglaYear} ইং`;
+
+  
+    document.getElementById('banglaDate').innerText = banglaDate;
+}
+
+ 
+getBanglaDate();
+</script>
